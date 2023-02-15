@@ -1,0 +1,21 @@
+.wrapper {
+	border: 1px solid #ccc;
+	padding: 50px 30px;
+	width: 75vw;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.col {
+	padding: 20px;
+	background-color: #5099ff;
+	color: #fff;
+	text-align: center;
+}
+
+.gutter-row {
+	padding: 8px 0;
+	background: #00a0e9;
+}
