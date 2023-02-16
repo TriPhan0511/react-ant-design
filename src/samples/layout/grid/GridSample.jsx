@@ -2,71 +2,197 @@ import React from 'react'
 import { Row, Col, Divider } from 'antd'
 import './GridSample.css'
 
-// FLEX STRETCH
+// MORE RESPONSIVE
 const GridSample = () => {
-  const wrapperStyle = {
-    border: '1px solid #ccc',
-    padding: '50px 30px',
-    width: '75vw',
-    margin: 'auto',
-  }
+	const wrapperStyle = {
+		border: '1px solid #ccc',
+		padding: '50px 30px',
+		width: '75vw',
+		margin: 'auto',
+	}
 
-  const rowStyle = {
-    backgroundColor: '#F5F5F5',
-    padding: '8px 0',
-  }
+	const rowStyle = {
+		backgroundColor: '#F5F5F5',
+		padding: '8px 0',
+	}
 
-  const colStyle = {
-    padding: '20px 0',
-    color: '#fff',
-    textAlign: 'center',
-    backgroundColor: '#1677FF',
-  }
+	const colStyle = {
+		padding: '20px 0',
+		color: '#fff',
+		textAlign: 'center',
+		backgroundColor: '#1677FF',
+	}
 
-  return (
-    <div style={wrapperStyle}>
-      <Divider orientation='left'>Percentage columns</Divider>
-      <Row style={rowStyle}>
-        <Col flex={2} style={{ ...colStyle, opacity: 0.8 }}>
-          2/5
-        </Col>
-        <Col flex={3} style={colStyle}>
-          3/5
-        </Col>
-      </Row>
-      <Divider orientation='left'>Fill rest</Divider>
-      <Row style={rowStyle}>
-        <Col flex='100px' style={{ ...colStyle, opacity: 0.8 }}>
-          100px
-        </Col>
-        <Col flex='auto' style={colStyle}>
-          Fill rest
-        </Col>
-      </Row>
-      <Divider orientation='left'>Raw flex style</Divider>
-      <Row style={rowStyle}>
-        <Col flex='1 1 100px' style={{ ...colStyle, opacity: 0.8 }}>
-          1 1 100px
-        </Col>
-        <Col flex='1 1 300px' style={colStyle}>
-          1 1 300px
-        </Col>
-      </Row>
-      <Row wrap={false} style={rowStyle}>
-        <Col flex='none' style={{ ...colStyle, opacity: 0.8 }}>
-          <div style={{ padding: '0 10px' }}>none</div>
-        </Col>
-        <Col flex='auto' style={colStyle}>
-          auto with no-wrap
-        </Col>
-      </Row>
-    </div>
-  )
+	return (
+		<div style={wrapperStyle}>
+			<Row style={rowStyle}>
+				<Col
+					xs={{
+						span: 5,
+						offset: 1,
+					}}
+					lg={{
+						span: 6,
+						offset: 2,
+					}}
+					style={{ ...colStyle, opacity: 0.8 }}
+				>
+					Col
+				</Col>
+				<Col
+					xs={{
+						span: 11,
+						offset: 1,
+					}}
+					lg={{
+						span: 6,
+						offset: 2,
+					}}
+					style={colStyle}
+				>
+					Col
+				</Col>
+				<Col
+					xs={{
+						span: 5,
+						offset: 1,
+					}}
+					lg={{
+						span: 6,
+						offset: 2,
+					}}
+					style={{ ...colStyle, opacity: 0.8 }}
+				>
+					Col
+				</Col>
+			</Row>
+		</div>
+	)
 }
 
 export default GridSample
 
 // ----------------------------------------------------------------------
+// // RESPONSIVE
+// const GridSample = () => {
+// 	const wrapperStyle = {
+// 		border: '1px solid #ccc',
+// 		padding: '50px 30px',
+// 		width: '75vw',
+// 		margin: 'auto',
+// 	}
+
+// 	const rowStyle = {
+// 		backgroundColor: '#F5F5F5',
+// 		padding: '8px 0',
+// 	}
+
+// 	const colStyle = {
+// 		padding: '20px 0',
+// 		color: '#fff',
+// 		textAlign: 'center',
+// 		backgroundColor: '#1677FF',
+// 	}
+
+// 	return (
+// 		<div style={wrapperStyle}>
+// 			<Row style={rowStyle}>
+// 				<Col
+// 					xs={2}
+// 					sm={4}
+// 					md={6}
+// 					lg={8}
+// 					xl={10}
+// 					style={{ ...colStyle, opacity: 0.8 }}
+// 				>
+// 					Col
+// 				</Col>
+// 				<Col xs={20} sm={16} md={12} lg={8} xl={4} style={colStyle}>
+// 					Col
+// 				</Col>
+// 				<Col
+// 					xs={2}
+// 					sm={4}
+// 					md={6}
+// 					lg={8}
+// 					xl={10}
+// 					style={{ ...colStyle, opacity: 0.8 }}
+// 				>
+// 					Col
+// 				</Col>
+// 			</Row>
+// 		</div>
+// 	)
+// }
+
+// export default GridSample
+
+// // ----------------------------------------------------------------------
+// // FLEX STRETCH
+// const GridSample = () => {
+//   const wrapperStyle = {
+//     border: '1px solid #ccc',
+//     padding: '50px 30px',
+//     width: '75vw',
+//     margin: 'auto',
+//   }
+
+//   const rowStyle = {
+//     backgroundColor: '#F5F5F5',
+//     padding: '8px 0',
+//   }
+
+//   const colStyle = {
+//     padding: '20px 0',
+//     color: '#fff',
+//     textAlign: 'center',
+//     backgroundColor: '#1677FF',
+//   }
+
+//   return (
+//     <div style={wrapperStyle}>
+//       <Divider orientation='left'>Percentage columns</Divider>
+//       <Row style={rowStyle}>
+//         <Col flex={2} style={{ ...colStyle, opacity: 0.8 }}>
+//           2/5
+//         </Col>
+//         <Col flex={3} style={colStyle}>
+//           3/5
+//         </Col>
+//       </Row>
+//       <Divider orientation='left'>Fill rest</Divider>
+//       <Row style={rowStyle}>
+//         <Col flex='100px' style={{ ...colStyle, opacity: 0.8 }}>
+//           100px
+//         </Col>
+//         <Col flex='auto' style={colStyle}>
+//           Fill rest
+//         </Col>
+//       </Row>
+//       <Divider orientation='left'>Raw flex style</Divider>
+//       <Row style={rowStyle}>
+//         <Col flex='1 1 100px' style={{ ...colStyle, opacity: 0.8 }}>
+//           1 1 100px
+//         </Col>
+//         <Col flex='1 1 300px' style={colStyle}>
+//           1 1 300px
+//         </Col>
+//       </Row>
+//       <Row wrap={false} style={rowStyle}>
+//         <Col flex='none' style={{ ...colStyle, opacity: 0.8 }}>
+//           <div style={{ padding: '0 10px' }}>none</div>
+//         </Col>
+//         <Col flex='auto' style={colStyle}>
+//           auto with no-wrap
+//         </Col>
+//       </Row>
+//     </div>
+//   )
+// }
+
+// export default GridSample
+
+// // ----------------------------------------------------------------------
 // // ORDER
 // const GridSample = () => {
 //   const wrapperStyle = {

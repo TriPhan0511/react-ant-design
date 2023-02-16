@@ -1,7 +1,7 @@
-import GridSample from './samples/layout/grid/GridSample'
+import SpaceSample from './samples/layout/space/SpaceSample'
 
 function App() {
-	return <GridSample />
+	return <SpaceSample />
 }
 
 export default App
