@@ -1,16 +1,4 @@
-import { Space, Tooltip, Button, Dropdown, Menu } from 'antd'
-import {
-	LikeOutlined,
-	CommentOutlined,
-	StarOutlined,
-	HeartOutlined,
-	ShareAltOutlined,
-	DownloadOutlined,
-	EllipsisOutlined,
-	WarningOutlined,
-	MailOutlined,
-	MobileOutlined,
-} from '@ant-design/icons'
+import { Space, Button } from 'antd'
 
 // VERTICAL COMPACT
 const SpaceSample = () => {

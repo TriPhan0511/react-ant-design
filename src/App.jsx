@@ -1,7 +1,8 @@
-import SpaceSample from './samples/layout/space/SpaceSample'
+import FormMethodSample from './samples/data-entry/form/FormMethodSample'
+import FormSample from './samples/data-entry/form/FormSample'
 
 function App() {
-	return <SpaceSample />
+	return <FormMethodSample />
 }
 
 export default App
