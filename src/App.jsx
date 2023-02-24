@@ -1,8 +1,7 @@
-import FormMethodSample from './samples/data-entry/form/FormMethodSample'
-import FormSample from './samples/data-entry/form/FormSample'
+import AntdTable02JsxStyleAPI from './samples/tables/AntdTable02JsxStyleAPI'
 
 function App() {
-	return <FormMethodSample />
+	return <AntdTable02JsxStyleAPI />
 }
 
 export default App
