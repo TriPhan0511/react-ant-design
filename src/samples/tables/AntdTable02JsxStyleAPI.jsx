@@ -66,7 +66,7 @@ const AntdTable02JsxStyleAPI = () => {
 			{!isLoading && !isError && data && !data.length && (
 				<h2 style={{ color: 'purple' }}>No students</h2>
 			)}
-			{data && data.length && (
+			{data && data.length > 0 && (
 				<Table dataSource={data}>
 					<ColumnGroup title='Name'>
 						<Column title='First Name' dataIndex='firstName' key='firstName' />

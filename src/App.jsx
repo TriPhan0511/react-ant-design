@@ -1,7 +1,7 @@
-import AntdTable02JsxStyleAPI from './samples/tables/AntdTable02JsxStyleAPI'
+import AntdTable03Selection from './samples/tables/AntdTable03Selection'
 
 function App() {
-	return <AntdTable02JsxStyleAPI />
+	return <AntdTable03Selection />
 }
 
 export default App

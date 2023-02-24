@@ -127,7 +127,7 @@ const AntdTable01Basic = () => {
 			{!isLoading && !isError && data && !data.length && (
 				<h2 style={{ color: 'purple' }}>You have no students</h2>
 			)}
-			{data && data.length > 1 && (
+			{data && data.length > 0 && (
 				<Table dataSource={data} columns={columns} />
 				// <Table dataSource={data} columns={createColumns(data)} />
 			)}
