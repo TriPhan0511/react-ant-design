@@ -2,6 +2,10 @@ import { Table, Space, Button } from 'antd'
 import { useState } from 'react'
 import { toTitleCase } from '../../utilities/StringOperations'
 
+// Selection and operation
+// To perform operations and clear selections after selecting some rows,
+// use rowSelection.selectedRowkeys to control selected rows.
+
 // Datasource
 const createDataSource = (length) =>
   new Array(length).fill(0).map((_, i) => ({
@@ -24,7 +28,7 @@ const AntdTable04SelectionAndOperation = () => {
   const [isLoading, setIsLoading] = useState(false)
 
   const rowSelection = {
-    selectedRowKeys,
+    selectedRowKeys, // Pay attention
     onChange: (keys) => setSelectedRowKeys(keys),
   }
 

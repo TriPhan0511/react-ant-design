@@ -1,7 +1,8 @@
-import AntdTable04SelectionAndOperation from './samples/tables/AntdTable04SelectionAndOperation'
+import Antd06FilterAndSort from './samples/tables/Antd06FilterAndSort'
+
 
 function App() {
-  return <AntdTable04SelectionAndOperation />
+  return <Antd06FilterAndSort />
 }
 
 export default App
