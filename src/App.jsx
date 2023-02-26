@@ -1,9 +1,7 @@
-import RadioSample from './samples/data-entry/radio/RadioSample'
-import AntdTable03Selection from './samples/tables/AntdTable03Selection'
+import AntdTable04SelectionAndOperation from './samples/tables/AntdTable04SelectionAndOperation'
 
 function App() {
-  // return <AntdTable03Selection />
-  return <RadioSample />
+  return <AntdTable04SelectionAndOperation />
 }
 
 export default App
