@@ -46,18 +46,18 @@ const columns = [
 		title: 'Name',
 		dataIndex: 'name',
 		sorter: (a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0), // Alphabetical sorting
-		// filters: [
-		// 	{
-		// 		text: 'Joe',
-		// 		value: 'Joe',
-		// 	},
-		// 	{
-		// 		text: 'Jim',
-		// 		value: 'Jim',
-		// 	},
-		// ],
-		// onFilter: (value, record) =>
-		// 	record.name.toLowerCase().includes(value.toLowerCase()), // Alphabetical filtering
+		filters: [
+			{
+				text: 'Joe',
+				value: 'Joe',
+			},
+			{
+				text: 'Jim',
+				value: 'Jim',
+			},
+		],
+		onFilter: (value, record) =>
+			record.name.toLowerCase().includes(value.toLowerCase()), // Alphabetical filtering
 	},
 	{
 		title: 'Age',
