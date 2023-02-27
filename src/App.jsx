@@ -1,8 +1,7 @@
-import Antd06FilterAndSort from './samples/tables/Antd06FilterAndSort'
-
+import Antd06FilterAndSorter from './samples/tables/AntdTable06FilterAndSorter'
 
 function App() {
-  return <Antd06FilterAndSort />
+	return <Antd06FilterAndSorter />
 }
 
 export default App
