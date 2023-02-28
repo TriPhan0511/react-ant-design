@@ -1,7 +1,7 @@
-import AntdTable13Size from './samples/tables/AntdTable13Size'
+import AntdTable14BorderTitleAndFooter from './samples/tables/AntdTable14BorderTitleAndFooter'
 
 function App() {
-  return <AntdTable13Size />
+  return <AntdTable14BorderTitleAndFooter />
 }
 
 export default App
