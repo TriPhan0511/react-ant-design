@@ -69,7 +69,6 @@ const AntdTable14BorderTitleAndFooter = () => {
   return (
     <Table
       dataSource={data}
-      // dataSource={dataSource}
       columns={columns}
       bordered
       title={() => 'Header'}
@@ -79,6 +78,8 @@ const AntdTable14BorderTitleAndFooter = () => {
 }
 
 export default AntdTable14BorderTitleAndFooter
+
+// ---------------------------------------------------------
 // import { Table } from 'antd'
 
 // const AntdTable14BorderTitleAndFooter = () => {

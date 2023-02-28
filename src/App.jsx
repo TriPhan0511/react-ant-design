@@ -1,7 +1,7 @@
-import AntdTable14BorderTitleAndFooter from './samples/tables/AntdTable14BorderTitleAndFooter'
+import AntdTable15ExpandableRow from './samples/tables/AntdTable15ExpandableRow'
 
 function App() {
-  return <AntdTable14BorderTitleAndFooter />
+  return <AntdTable15ExpandableRow />
 }
 
 export default App
