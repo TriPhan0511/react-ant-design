@@ -1,7 +1,7 @@
-import AntdTable15ExpandableRow from './samples/tables/AntdTable15ExpandableRow'
+import AntdTable15ExpandableRow from './components/tables/AntdTable15ExpandableRow'
 
 function App() {
-  return <AntdTable15ExpandableRow />
+	return <AntdTable15ExpandableRow />
 }
 
 export default App
