@@ -1,7 +1,8 @@
-import AntdTable15ExpandableRow from './components/tables/AntdTable15ExpandableRow'
+
+import AntdTable22GroupingTableHead from './components/tables/AntdTable22GroupingTableHead'
 
 function App() {
-	return <AntdTable15ExpandableRow />
+	return <AntdTable22GroupingTableHead />
 }
 
 export default App

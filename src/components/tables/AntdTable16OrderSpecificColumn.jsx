@@ -1,6 +1,7 @@
 import { Table } from 'antd'
+import React from 'react'
 
-const AntdTable15ExpandableRow = () => {
+const AntdTable16OrderSpecificColumn = () => {
 	// Datasource
 	const dataSource = [
 		{
@@ -41,14 +42,19 @@ const AntdTable15ExpandableRow = () => {
 		{
 			title: 'Name',
 			dataIndex: 'name',
+			key: 'name',
 		},
+		Table.EXPAND_COLUMN,
 		{
 			title: 'Age',
 			dataIndex: 'age',
+			key: 'age',
 		},
+		Table.SELECTION_COLUMN,
 		{
 			title: 'Address',
 			dataIndex: 'address',
+			key: 'address',
 		},
 		{
 			title: 'Action',
@@ -57,20 +63,24 @@ const AntdTable15ExpandableRow = () => {
 		},
 	]
 
+	const onChange = (selectedRowKeys, selectedRows) => {
+		console.log('🚀 ~ selectedRowKeys:', selectedRowKeys)
+		console.log('🚀 ~ selectedRows:', selectedRows)
+	}
+
 	return (
 		<Table
 			dataSource={dataSource}
 			columns={columns}
 			expandable={{
 				expandedRowRender: (record) => (
-					<p style={{ margin: '0 50px', color: 'green' }}>
-						{record.description}
-					</p>
+					<p style={{ margin: '0', color: 'green' }}>{record.description}</p>
 				),
 				rowExpandable: (record) => record.name !== 'Not Expandable',
 			}}
+			rowSelection={{ onChange: onChange }}
 		/>
 	)
 }
 
-export default AntdTable15ExpandableRow
+export default AntdTable16OrderSpecificColumn
