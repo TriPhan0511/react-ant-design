@@ -1,10 +1,10 @@
 // import AntdForm02FormMethods from './components/data-entry/form/AntdForm02FormMethods'
 
-import AntdSelect05CustomSelectionRender from './components/data-entry/select/AntdSelect05CustomSelectionRender'
+import AntdSelect09Coordinate from './components/data-entry/select/AntdSelect09Coordinate'
 
 function App() {
-	return <AntdSelect05CustomSelectionRender />
-	// return <AntdForm02FormMethods />
+  return <AntdSelect09Coordinate />
+  // return <AntdForm02FormMethods />
 }
 
 export default App
