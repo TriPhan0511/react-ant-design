@@ -1,10 +1,8 @@
-// import AntdForm02FormMethods from './components/data-entry/form/AntdForm02FormMethods'
-
-import AntdSelect21Placement from './components/data-entry/select/AntdSelect21Placement'
+import AntdForm02FormMethods from './components/data-entry/form/AntdForm02FormMethods'
+import AntdForm04Layout from './components/data-entry/form/AntdForm04Layout'
 
 function App() {
-  return <AntdSelect21Placement />
-  // return <AntdForm02FormMethods />
+	return <AntdForm04Layout />
 }
 
 export default App
