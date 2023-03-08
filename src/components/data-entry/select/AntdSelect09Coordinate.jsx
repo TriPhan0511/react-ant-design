@@ -2,130 +2,49 @@ import { Select, Space } from 'antd'
 import { useState } from 'react'
 
 const AntdSelect09Coordinate = () => {
-  const countryData = ['Vietnam', 'Japan']
-  const cityData = {
-    Vietnam: ['Ho Chi Minh', 'Da Nang', 'Ha Noi'],
-    Japan: ['Tokyo', 'Hiroshima'],
+  const countries = ['vietnam', 'japan']
+
+  const countriesAndCities = {
+    vietnam: ['saigon', 'danang', 'hanoi'],
+    japan: ['tokyo', 'hiroshima'],
   }
 
-  const [cities, setCities] = useState(cityData[countryData[0]])
-  const [city, setCity] = useState(cityData[countryData[0]][0])
+  const [country, setCountry] = useState(countries[0])
+  const [city, setCity] = useState(countriesAndCities[country][0])
 
-  const handleCountryChange = (country) => {
-    console.log('🚀 ~ country:', country)
-    setCities(cityData[country])
-    setCity(cityData[country][0])
+  const handleCountryChange = (value) => {
+    setCountry(value)
+    setCity(countriesAndCities[value][0])
   }
 
-  const handleCityChange = (city) => {
-    console.log('🚀 ~ city:', city)
-    setCity(city)
+  const handleCityChange = (value) => {
+    setCity(value)
   }
 
   return (
-    <>
-      <Space>
-        <Select
-          style={{ width: 120 }}
-          onChange={handleCountryChange}
-          defaultValue={countryData[0]}
-          options={countryData.map((e) => ({
-            value: e,
-            label: e,
-          }))}
-        />
-        <Select
-          style={{ width: 120 }}
-          // defaultValue={city}
-          value={city}
-          options={cities.map((e) => ({
-            value: e,
-            label: e,
-          }))}
-          onChange={handleCityChange}
-        />
-      </Space>
-    </>
+    <Space>
+      <Select
+        style={{ width: 120 }}
+        value={country}
+        onChange={handleCountryChange}
+        options={countries.map((e) => ({
+          value: e,
+          label: e[0].toUpperCase() + e.slice(1),
+        }))}
+      />
+      <Select
+        style={{ width: 120 }}
+        value={city}
+        onChange={handleCityChange}
+        options={countriesAndCities[country].map((e) => ({
+          value: e,
+          label: e[0].toUpperCase() + e.slice(1),
+        }))}
+      />
+      {country && <p>{`Country: ${country}`}</p>}
+      {city && <p>{`City: ${city}`}</p>}
+    </Space>
   )
 }
 
 export default AntdSelect09Coordinate
-
-// -----------------------------------------------------------------
-// import { Select, Space } from 'antd'
-// import { useEffect, useState } from 'react'
-
-// const AntdSelect09Coordinate = () => {
-//   const countryAndCities = {
-//     vietnam: [
-//       {
-//         value: 'Ho Chi Minh',
-//         label: 'Ho Chi Minh',
-//       },
-//       {
-//         value: 'Da Nang',
-//         label: 'Da Nang',
-//       },
-//       {
-//         value: 'Ha Noi',
-//         label: 'Ha Noi',
-//       },
-//     ],
-//     japan: [
-//       {
-//         value: 'Tokyo',
-//         label: 'Tokyo',
-//       },
-//       {
-//         value: 'Hiroshima',
-//         label: 'Hiroshima',
-//       },
-//     ],
-//   }
-
-//   const [country, setCountry] = useState('vietnam')
-//   const [cities, setCities] = useState(countryAndCities[country])
-//   const [city, setCity] = useState('')
-
-//   const handleCountryChange = (value) => {
-//     setCountry(value)
-//   }
-
-//   const handleCityChange = (value) => {
-//     setCity(value)
-//   }
-
-//   useEffect(() => {
-//     setCities(countryAndCities[country])
-//   }, [country])
-
-//   return (
-//     <>
-//       <Space>
-//         <Select
-//           style={{ width: 120 }}
-//           onChange={handleCountryChange}
-//           defaultValue={country}
-//           options={[
-//             {
-//               value: 'vietnam',
-//               label: 'Vietnam',
-//             },
-//             {
-//               value: 'japan',
-//               label: 'Japan',
-//             },
-//           ]}
-//         />
-//         <Select
-//           style={{ width: 120 }}
-//           defaultValue={cities?.length > 0 ? cities[0].value : 'Select a city'}
-//           options={cities}
-//           onChange={handleCityChange}
-//         />
-//       </Space>
-//     </>
-//   )
-// }
-
-// export default AntdSelect09Coordinate

@@ -1,9 +1,9 @@
 // import AntdForm02FormMethods from './components/data-entry/form/AntdForm02FormMethods'
 
-import AntdSelect09Coordinate from './components/data-entry/select/AntdSelect09Coordinate'
+import AntdSelect21Placement from './components/data-entry/select/AntdSelect21Placement'
 
 function App() {
-  return <AntdSelect09Coordinate />
+  return <AntdSelect21Placement />
   // return <AntdForm02FormMethods />
 }
 
