@@ -79,22 +79,48 @@ const MomentJsBasic = () => {
 	// console.log('🚀 ~ d.second():', d.second()) // 3
 	// console.log('🚀 ~ d.millisecond():', d.millisecond()) // 123
 
-	const d = moment({
-		year: '2010',
-		month: '3',
-		day: '5',
-		hour: '15',
-		minute: '10',
-		second: '3',
-		millisecond: '123',
-	})
-	console.log('🚀 ~ d.year():', d.year()) // 2010
-	console.log('🚀 ~ d.month():', d.month()) // 3
-	console.log('🚀 ~ d.date():', d.date()) // 5
-	console.log('🚀 ~ d.hour():', d.hour()) // 15
-	console.log('🚀 ~ d.minute():', d.minute()) // 10
-	console.log('🚀 ~ d.second():', d.second()) // 3
-	console.log('🚀 ~ d.millisecond():', d.millisecond()) // 123
+	// const d = moment({
+	// 	year: '2010',
+	// 	month: '3',
+	// 	day: '5',
+	// 	hour: '15',
+	// 	minute: '10',
+	// 	second: '3',
+	// 	millisecond: '123',
+	// })
+	// console.log('🚀 ~ d.year():', d.year()) // 2010
+	// console.log('🚀 ~ d.month():', d.month()) // 3
+	// console.log('🚀 ~ d.date():', d.date()) // 5
+	// console.log('🚀 ~ d.hour():', d.hour()) // 15
+	// console.log('🚀 ~ d.minute():', d.minute()) // 10
+	// console.log('🚀 ~ d.second():', d.second()) // 3
+	// console.log('🚀 ~ d.millisecond():', d.millisecond()) // 123
+
+	// Unix Timestamp (milliseconds)
+	// moment(Number)
+
+	// const d = moment(1318781876406)
+	// console.log('🚀 ~ d:', d) // Sun Oct 16 2011 23:17:56 GMT+0700 (Indochina Time)
+	// console.log('🚀 ~ d.year():', d.year()) // 2011
+
+	// Unix Timestamp (seconds)
+	// moment.unix(Number)
+
+	// const d = moment.unix(1318781876)
+	// console.log('🚀 ~ d:', d) // Sun Oct 16 2011 23:17:56 GMT+0700 (Indochina Time)
+
+	// Date
+	// moment(Date)
+	// You can create a Moment with a pre-existing native Javascript Date object
+
+	// const d = moment(new Date(2011, 9, 16))
+	// console.log('🚀 ~ d:', d) // Sun Oct 16 2011 00:00:00 GMT+0700 (Indochina Time)
+
+	// Array
+	// moment(Number[])
+	// You can create a moment with an array of numbers that
+	// mirror the parameters passed to new Date()
+	// moment([year, month, day, hour, minute, second, millisecond])
 
 	// -------------------------------------------------------------------------------------
 	// *** GET + SET ***
