@@ -1,14 +1,11 @@
-import { Form, Input, Button, Radio, Space } from 'antd'
+import { Form, Input, Button, Radio } from 'antd'
 import { useState } from 'react'
 
 const AntdForm04Layout = () => {
-	const [layout, setLayout] = useState('horizontal')
-	const [form] = Form.useForm()
-
-	const Item = Form.Item
+	const [formLayout, setFormLayout] = useState('horizontal')
 
 	const formItemLayout =
-		layout === 'horizontal'
+		formLayout === 'horizontal'
 			? {
 					labelCol: {
 						span: 4,
@@ -19,136 +16,58 @@ const AntdForm04Layout = () => {
 			  }
 			: null
 
-	const buttonItemLayout =
-		layout === 'horizontal'
+	const formButtonLayout =
+		formLayout === 'horizontal'
 			? {
 					wrapperCol: {
 						offset: 4,
-						span: 14,
 					},
 			  }
 			: null
 
-	const onValuesChange = ({ radios }) => {
-		setLayout(radios)
+	const onValuesChange = ({ layout }) => {
+		setFormLayout(layout)
+	}
+
+	const onFinish = (values) => {
+		console.log(values)
 	}
 
 	return (
-		<div
-			style={{
-				maxWidth: 1200,
-				margin: '100px auto',
-				padding: 20,
-				border: '1px solid #ccc',
-			}}
-		>
+		<>
 			<Form
+				name='form-layout'
 				{...formItemLayout}
-				layout={layout}
-				form={form}
-				initialValues={{ radios: layout }}
+				initialValues={{ layout: 'horizontal' }}
 				onValuesChange={onValuesChange}
+				onFinish={onFinish}
+				layout={formLayout}
 			>
-				<Item name='radios' label='Form layout'>
-					<Radio.Group value={layout}>
+				<Form.Item name='layout' label='Form layout'>
+					<Radio.Group>
 						<Radio.Button value='horizontal'>Horizontal</Radio.Button>
 						<Radio.Button value='vertical'>Vertical</Radio.Button>
 						<Radio.Button value='inline'>Inline</Radio.Button>
 					</Radio.Group>
-				</Item>
+				</Form.Item>
 
-				<Item name='fieldA' label='Field A'>
+				{/* <Form.Item name='fieldA' label='Field A'> */}
+				<Form.Item label='Field A'>
 					<Input placeholder='input placeholder' />
-				</Item>
-				<Item label='Field B'>
+				</Form.Item>
+				{/* <Form.Item name='fieldB' label='Field B'> */}
+				<Form.Item label='Field B'>
 					<Input placeholder='input placeholder' />
-				</Item>
+				</Form.Item>
 
-				<Item name='submitButton' {...buttonItemLayout}>
-					<Button type='primary'>Submit</Button>
-				</Item>
+				<Form.Item {...formButtonLayout}>
+					<Button type='primary' htmlType='submit'>
+						Submit
+					</Button>
+				</Form.Item>
 			</Form>
-		</div>
+		</>
 	)
 }
 
 export default AntdForm04Layout
-
-// // ----------------------------------------------------------------------
-// import { Form, Input, Button, Radio, Space } from 'antd'
-// import { useState } from 'react'
-
-// const AntdForm04Layout = () => {
-// 	const [form] = Form.useForm()
-// 	const [formLayout, setFormLayout] = useState('horizontal')
-// 	// const [formLayout, setFormLayout] = useState('vertical')
-// 	// const [formLayout, setFormLayout] = useState('inline')
-
-// 	const formItemLayout =
-// 		formLayout === 'horizontal'
-// 			? {
-// 					labelCol: {
-// 						span: 4,
-// 					},
-// 					wrapperCol: {
-// 						span: 14,
-// 					},
-// 			  }
-// 			: null
-
-// 	const buttonItemLayout =
-// 		formLayout === 'horizontal'
-// 			? {
-// 					wrapperCol: {
-// 						offset: 4,
-// 						span: 14,
-// 					},
-// 			  }
-// 			: null
-
-// 	const onFormLayoutChange = ({ layout }) => {
-// 		setFormLayout(layout)
-// 	}
-
-// 	return (
-// 		<div
-// 			style={{
-// 				maxWidth: 1200,
-// 				margin: '100px auto',
-// 				padding: 20,
-// 				border: '1px solid #ccc',
-// 			}}
-// 		>
-// 			<Form
-// 				{...formItemLayout}
-// 				layout={formLayout}
-// 				form={form}
-// 				initialValues={{
-// 					layout: formLayout,
-// 				}}
-// 				onValuesChange={onFormLayoutChange}
-// 			>
-// 				<Form.Item name='layout' label='Form layout'>
-// 					<Radio.Group value={formLayout}>
-// 						<Radio.Button value='horizontal'>Horizontal</Radio.Button>
-// 						<Radio.Button value='vertical'>Vertical</Radio.Button>
-// 						<Radio.Button value='inline'>Inline</Radio.Button>
-// 					</Radio.Group>
-// 				</Form.Item>
-
-// 				<Form.Item label='Field A'>
-// 					<Input placeholder='input placeholder' />
-// 				</Form.Item>
-// 				<Form.Item label='Field B'>
-// 					<Input placeholder='input placeholder' />
-// 				</Form.Item>
-
-// 				<Form.Item {...buttonItemLayout}>
-// 					<Button type='primary'>Submit</Button>
-// 				</Form.Item>
-// 			</Form>
-// 		</div>
-// 	)
-// }
-
-// export default AntdForm04Layout
