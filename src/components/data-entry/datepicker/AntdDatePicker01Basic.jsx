@@ -2,10 +2,11 @@ import { DatePicker, Space } from 'antd'
 
 const AntdDatePicker01Basic = () => {
 	const onChange = (date, dateString) => {
-		console.log('🚀 ~ date.month():', date.month())
-		console.log('🚀 ~ date.date():', date.date())
-		// console.log('🚀 ~ date:', date)
-		// console.log('🚀 ~ dateString:', dateString)
+		// console.log('🚀 ~ date.month():', date.month())
+		// console.log('🚀 ~ date.date():', date.date())
+		console.log('🚀 ~ date:', date)
+		console.log('🚀 ~ date.week():', date.week())
+		console.log('🚀 ~ dateString:', dateString)
 	}
 
 	return (

@@ -1,7 +1,7 @@
 import { DatePicker, TimePicker, Space, Select } from 'antd'
 import { useState } from 'react'
 
-const AntdDatePicker02SwitchablePicker = () => {
+const AntdDatePicker03SwitchablePicker = () => {
 	const [type, setType] = useState('time')
 
 	const options = [
@@ -53,4 +53,4 @@ const AntdDatePicker02SwitchablePicker = () => {
 	)
 }
 
-export default AntdDatePicker02SwitchablePicker
+export default AntdDatePicker03SwitchablePicker
