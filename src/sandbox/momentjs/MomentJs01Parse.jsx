@@ -1,16 +1,14 @@
 import moment from 'moment'
 
-const MomentJsBasic = () => {
-	// *** PARSE ***
-
-	// // Now
+const MomentJs01Parse = () => {
+	// // *** Now
 	// // To get current date and time, just call moment() with no parameters
 	// const now = moment()
 	// console.log('🚀 ~ now.date():', now.date()) // 9
 	// console.log('🚀 ~ now.month():', now.month()) // 2
 	// console.log('🚀 ~ now.year():', now.year()) // 2023
 
-	// // String
+	// // *** String
 	// const day = moment('1995-12-25')
 
 	// console.log('🚀 ~ day.year():', day.year()) // 1995
@@ -32,7 +30,7 @@ const MomentJsBasic = () => {
 	// months.set(11, 'December')
 	// console.log('🚀 ~ Month:', months.get(day.month())) // December
 
-	// // String + Format
+	// // *** String + Format
 	// // moment(String, String)
 	// // moment(String, String, String)
 	// // moment(String, String, String[])
@@ -50,7 +48,7 @@ const MomentJsBasic = () => {
 	// console.log('🚀 ~ d.month():', d.month()) // 10
 	// console.log('🚀 ~ d.date():', d.date()) // 5
 
-	// Object
+	// *** Object
 	// moment({unit: value, ...})
 
 	// const d = moment({ y: 2010, M: 3, d: 5, h: 15, m: 10, s: 3, ms: 123 })
@@ -96,106 +94,94 @@ const MomentJsBasic = () => {
 	// console.log('🚀 ~ d.second():', d.second()) // 3
 	// console.log('🚀 ~ d.millisecond():', d.millisecond()) // 123
 
-	// Unix Timestamp (milliseconds)
+	// *** Unix Timestamp (milliseconds)
 	// moment(Number)
 
 	// const d = moment(1318781876406)
 	// console.log('🚀 ~ d:', d) // Sun Oct 16 2011 23:17:56 GMT+0700 (Indochina Time)
 	// console.log('🚀 ~ d.year():', d.year()) // 2011
 
-	// Unix Timestamp (seconds)
+	// *** Unix Timestamp (seconds)
 	// moment.unix(Number)
 
 	// const d = moment.unix(1318781876)
 	// console.log('🚀 ~ d:', d) // Sun Oct 16 2011 23:17:56 GMT+0700 (Indochina Time)
 
-	// Date
+	// *** Date (Javascript Date object)
 	// moment(Date)
 	// You can create a Moment with a pre-existing native Javascript Date object
 
 	// const d = moment(new Date(2011, 9, 16))
 	// console.log('🚀 ~ d:', d) // Sun Oct 16 2011 00:00:00 GMT+0700 (Indochina Time)
 
-	// Array
+	// *** Array
 	// moment(Number[])
 	// You can create a moment with an array of numbers that
 	// mirror the parameters passed to new Date()
 	// moment([year, month, day, hour, minute, second, millisecond])
+	// console.log(moment([2010, 1, 14, 15, 25, 50, 125])) // Sun Feb 14 2010 15:25:50 GMT+0700 (Indochina Time)
 
-	// -------------------------------------------------------------------------------------
-	// *** GET + SET ***
-	// console.log('millisecond', moment().millisecond())
-	// console.log('second', moment().second())
-	// console.log('minute', moment().minute())
-	// console.log('hour', moment().hour())
+	// // Any value past the year is optional, and will default to the lowest possible number
+	// console.log(moment([2010])) // Jan 1st
+	// console.log(moment([2010, 6])) // Jul 1st
+	// console.log(moment([2010, 6, 10])) // July 10th
 
-	// console.log('date', moment().date()) // Date of Month -> 9
+	// Construction with an array will create a date in the current time zone.
+	// To create a date from an array at UTC, use moment.utc(Number[])
+	// console.log(moment.utc([2010, 1, 14, 15, 25, 50, 125]))
 
-	// console.log('day', moment().day()) // Day of Week (Sunday as 0 and Saturday as 6.) -> 4 (Thursday)
-	// console.log('day', moment().day()) // Day of Week -> 4 (Thursday)
-	// console.log('weekday', moment().weekday()) // Day of Week (Locale Aware)
-	// console.log('isoWeekday', moment().isoWeekday())
-	// console.log('dayOfYear', moment().dayOfYear()) // 68
+	// *** Moment Clone
+	// All moments are mutable. If you want a clone of a moment,
+	// you can do so implicitly or explicitly
 
-	// console.log('week', moment().week()) // Week of year 10
-	// console.log('isoWeek', moment().isoWeek()) // Week of year (ISO) 10
+	// // 1. Calling moment() on a moment will clone it
+	// const a = moment([2012])
+	// const b = moment(a)
+	// a.year(2000)
+	// console.log(a.year()) // 2000
+	// console.log(b.year()) // 2012
 
-	// console.log('month', moment().month()) // Months are zero indexed, so January is month 0. -> 2
+	// // 2. Additionally, you can call moment#clone to clone a moment
+	// const a = moment([2012])
+	// const b = a.clone(a)
+	// a.year(2000)
+	// console.log(a.year()) // 2000
+	// console.log(b.year()) // 2012
 
-	// console.log('quarter', moment().quarter()) // 1 to 4 -> 1
+	// // *** Create Data
+	// const d = moment('1984-11-05', 'YYYY-MM-DD').creationData()
+	// console.log('🚀 ~ d:', d)
+	// console.log('🚀 ~ d.input:', d.input)
 
-	// console.log('year', moment().year()) // 2023
-	// console.log('weekYear', moment().weekYear()) // Gets or sets the week-year according to the locale. -> 2023
-	// console.log('isoWeekYear', moment().isoWeekYear()) // Gets or sets ISO week-year. -> 2023
-	// console.log('weeksInYear', moment().weeksInYear()) // 52
-	// console.log('isoWeeksInYear', moment().isoWeeksInYear()) // ISO weeks -> 52
+	// *** Defaults
+	// You can create a moment object specifying only some of the units,
+	// and the rest will be defaulted to the current day, month or year,
+	// or 0 for hours, minutes, seconds and milliseconds.
 
-	// // Get
-	// console.log('year', moment().get('year')) // 2023
-	// console.log('month', moment().get('month')) // 2 (0 to 11)
-	// console.log('week', moment().get('week')) // 10
-	// console.log('date', moment().get('date')) // 9
-	// console.log('day', moment().get('day')) // 4
-	// console.log('hour', moment().get('hour')) // 11
-	// console.log('minute', moment().get('minute')) // 59
-	// console.log('second', moment().get('second')) // 46
-	// console.log('millisecond', moment().get('millisecond')) // 684
+	// // Defaulting to now, when nothing is passed
+	// const now = moment() // current date and time
+	// console.log('🚀 ~ now:', now)
+	// console.log('🚀 ~ now.hour():', now.hour())
 
-	// // Set
-	// const x = moment().set('year', 3000)
-	// console.log('🚀 ~ x:', x)
-	// console.log(x.year()) // 3000
-	// console.log(x.date()) // 9
+	// Defaulting to today, when only hours, minutes, seconds and milliseconds are passed:
+	// const d = moment(5, 'HH') // today 5:00:00.000
+	// const d = moment({ hour: 5 }) // today 5:00:00.000
+	// const d = moment({ hour: 5, minute: 15 }) // today, 5:15:00.000
+	// const d = moment({ hour: 5, minute: 10, second: 20 }) // today, 5:10:20.000
+	// const d = moment({ hour: 5, minute: 10, second: 20, millisecond: 300 }) // today, 5:10:20.300
+	// console.log('🚀 ~ d:', d)
 
-	// const y = moment().set({ year: 3000, month: 3 })
-	// console.log('🚀 ~ y:', y)
+	// Defaulting to this month and year, when only days and smaller units are passed:
+	// const d = moment(5, 'DD') // this month, 5th day-of-month
+	// const d = moment('4 05:06:07', 'DD hh:mm:ss') // this month, 4th day-of-month, 05:06:07.000
+	// console.log('🚀 ~ d:', d)
 
-	// // Maximum: Returns the maximum (most distant future) of the given moment instances
-	// const a = moment().subtract(1, 'day')
-	// const b = moment().add(1, 'day')
-	// console.log(moment.max(a, b)) // b
+	// Defaulting to this year, if year is not specified:
+	// const d = moment(3, 'MM') // this year, 3rd month (March)
+	const d = moment('Apr 4 05:06:07', 'MMM DD hh:mm:ss')
+	console.log('🚀 ~ d:', d) // this year, 4th April, 05:06:07
 
-	// // Maximum: Example
-	// const friends = [
-	// 	{
-	// 		name: 'Dan',
-	// 		birthday: '11.12.1977',
-	// 	},
-	// 	{
-	// 		name: 'Mary',
-	// 		birthday: '11.12.1986',
-	// 	},
-	// 	{
-	// 		name: 'Stephan',
-	// 		birthday: '11.01.1993',
-	// 	},
-	// ]
-
-	// const birthdays = friends.map((e) => moment(e.birthday, 'DD.MM.YYYY'))
-	// console.log(moment.max(birthdays))
-	// console.log(moment.max(birthdays).year()) // 1993
-
-	return <></>
+	return <div>MomentJs01Parse</div>
 }
 
-export default MomentJsBasic
+export default MomentJs01Parse
