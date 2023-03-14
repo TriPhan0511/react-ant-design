@@ -1,9 +1,8 @@
-// import AntdForm05FormDisabled from './components/data-entry/form/AntdForm05FormDisabled'
-
-import AntdDatePicker06DisabledDateAndTime from './components/data-entry/datepicker/AntdDatePicker06DisabledDateAndTime'
+import AntdForm05FormDisabled from './components/data-entry/form/AntdForm05FormDisabled'
+import AntdForm06RequiredStyel from './components/data-entry/form/AntdForm06RequiredStyle'
 
 function App() {
-	return <AntdDatePicker06DisabledDateAndTime />
+	return <AntdForm06RequiredStyel />
 }
 
 export default App
