@@ -1,34 +1,25 @@
-import { message, Upload } from 'antd'
+import { Upload, message } from 'antd'
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons'
-import { useState } from 'react'
 
 import mockApi from './mockApi'
+import { useState } from 'react'
+
+const AntdUpload09JpgOrPngFileOnly = () => {
+	const [isLoading, setIsLoading] = useState(false)
+	const [imageUrl, setImageUrl] = useState()
+
+	const uploadButton = (
+		<div>
+			{isLoading ? <LoadingOutlined /> : <PlusOutlined />}
+			<div style={{ marginTop: 8 }}>Upload</div>
+		</div>
+	)
 
 	const getBase64 = (img, callback) => {
 		const reader = new FileReader()
 		reader.addEventListener('load', () => callback(reader.result))
 		reader.readAsDataURL(img)
 	}
-
-	// Validate format and size of image
-	const beforeUpload = (file) => {
-		const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png'
-		if (!isJpgOrPng) {
-			message.error('You can only upload JPG/PNG file!')
-		}
-
-		const isLessThan2M = file.size / 1024 / 1024 < 2
-		if (!isLessThan2M) {
-			message.error('Image must smaller than 2MB!')
-		}
-
-		return isJpgOrPng && isLessThan2M
-	}
-
-const AntdUpload02Avatar = () => {
-	const [isLoading, setIsLoading] = useState(false)
-	const [imageUrl, setImageUrl] = useState()
-	console.log('🚀 ~ imageUrl:', imageUrl)
 
 	const onChange = (info) => {
 		if (info.file.status === 'uploading') {
@@ -44,12 +35,21 @@ const AntdUpload02Avatar = () => {
 		}
 	}
 
-	const uploadButton = (
-		<div>
-			{isLoading ? <LoadingOutlined /> : <PlusOutlined />}
-			<div style={{ marginTop: 8 }}>Upload</div>
-		</div>
-	)
+	// Validate format and size of image
+	const beforeUpload = (file) => {
+		const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png'
+		if (!isJpgOrPng) {
+			message.error('You can only upload JPG/PNG file!')
+		}
+
+		const isLessThan2M = file.size / 1024 / 1024 < 2
+		if (!isLessThan2M) {
+			message.error('Image must smaller than 2MB!')
+		}
+
+		// return isJpgOrPng && isLessThan2M
+		return (isJpgOrPng && isLessThan2M) || Upload.LIST_IGNORE
+	}
 
 	const imageUploadingProps = {
 		...mockApi,
@@ -77,4 +77,4 @@ const AntdUpload02Avatar = () => {
 	)
 }
 
-export default AntdUpload02Avatar
+export default AntdUpload09JpgOrPngFileOnly
