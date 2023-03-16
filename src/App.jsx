@@ -5,8 +5,8 @@ import AntdUpload02Avatar from './components/data-entry/upload/AntdUpload02Avata
 import AntdUpload04PictureWall from './components/data-entry/upload/AntdUpload04PictureWall'
 
 function App() {
-	return <AntdUpload01 />
-	// return <AntdUpload02Avatar />
+	return <AntdUpload02Avatar />
+	// return <AntdUpload01 />
 	// return <AntdUpload04PictureWall />
 }
 
