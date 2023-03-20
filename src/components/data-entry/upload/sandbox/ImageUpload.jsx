@@ -1,10 +1,14 @@
-import { Upload, message, Form, Button } from 'antd'
-import { LoadingOutlined, PlusOutlined } from '@ant-design/icons'
-
-import mockApi from './mockApi'
 import { useState } from 'react'
+import { Upload, message, Form, Button, Input, Row, Col } from 'antd'
+import {
+	LoadingOutlined,
+	PlusOutlined,
+	UploadOutlined,
+} from '@ant-design/icons'
 
-const AntdUpload01ImageFormItem = () => {
+import mockApi from '../mockApi'
+
+const ImageUpload = () => {
 	const [isLoading, setIsLoading] = useState(false)
 	const [imageUrl, setImageUrl] = useState()
 
@@ -59,7 +63,7 @@ const AntdUpload01ImageFormItem = () => {
 	const imageUploadingProps = {
 		...mockApi,
 		name: 'avatar',
-		listType: 'picture-card',
+		// listType: 'picture-card',
 		className: 'avatar-uploader',
 		showUploadList: false,
 		beforeUpload,
@@ -73,22 +77,55 @@ const AntdUpload01ImageFormItem = () => {
 	}
 
 	return (
-		<>
-			<Form.Item label='Hình ảnh' name='image'>
-				<Upload {...imageUploadingProps}>
-					{imageUrl ? (
-						<img src={imageUrl} alt='avatar' style={{ width: '100%' }} />
-					) : (
-						uploadButton
-					)}
-				</Upload>
-			</Form.Item>
+		<div
+			style={{
+				border: '1px solid #ccc',
+				borderRadius: 10,
+				maxWidth: 500,
+				margin: 'auto',
+				marginTop: 100,
+				padding: 32,
+			}}
+		>
+			<Form onFinish={onFinish}>
+				{/* <Form.Item label='Hình ảnh'>
+					<Upload {...imageUploadingProps}>
+						{imageUrl ? (
+							<img src={imageUrl} alt='avatar' style={{ width: '100%' }} />
+						) : (
+							uploadButton
+						)}
+					</Upload>
+				</Form.Item> */}
 
-			{/* {imageUrl && (
-    <img src={imageUrl} alt='' style={{ width: 300, height: 250 }} />
-  )} */}
-		</>
+				<Upload {...imageUploadingProps}>
+					<Button icon={<UploadOutlined />}>Upload hình ảnh</Button>
+				</Upload>
+
+				<Form.Item name='imageLink' label='Image Link'>
+					<Input />
+				</Form.Item>
+
+				<div>Upload Hình Ảnh</div>
+				<Row>
+					<Col span={12}>
+						<Upload {...imageUploadingProps}>
+							<Button icon={<UploadOutlined />}>Upload hình ảnh</Button>
+						</Upload>
+					</Col>
+					<Col span={12}>
+						<Form.Item name='imageLink'>
+							<Input placeholder='Nhập link của hình ảnh' />
+						</Form.Item>
+					</Col>
+				</Row>
+
+				<Form.Item wrapperCol={{ offset: 21 }}>
+					<Button htmlType='submit'>Save</Button>
+				</Form.Item>
+			</Form>
+		</div>
 	)
 }
 
-export default AntdUpload01ImageFormItem
+export default ImageUpload
