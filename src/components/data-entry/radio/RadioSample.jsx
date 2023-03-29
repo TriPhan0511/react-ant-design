@@ -1,52 +1,31 @@
 import { Radio } from 'antd'
+import { useState } from 'react'
 
-// SOLID RADIO BUTTON STYLE
+import { HiViewGrid, HiViewList } from 'react-icons/hi'
+
 const RadioSample = () => {
-  const options = [
-    {
-      label: 'Los Angeles',
-      value: 'a',
-    },
-    {
-      label: 'New York',
-      value: 'b',
-    },
-    {
-      label: 'Seatle',
-      value: 'c',
-    },
-    {
-      label: 'Chicago',
-      value: 'd',
-    },
-  ]
+	const [viewMode, setViewMode] = useState('card')
 
-  const createOptionsWithDisabled = (options, disabledOptions) =>
-    disabledOptions && disabledOptions.length > 0
-      ? options.map((e) => {
-          for (const o of disabledOptions) {
-            if (e.value === o) {
-              e = { ...e, disabled: true }
-              break
-            }
-          }
-          return e
-        })
-      : options
-
-  return (
-    <>
-      <Radio.Group options={options} defaultValue='a' optionType='button' buttonStyle='solid' />
-      <br />
-      <br />
-      <Radio.Group
-        options={createOptionsWithDisabled(options, ['b'])}
-        defaultValue='c'
-        optionType='button'
-        buttonStyle='solid'
-      />
-    </>
-  )
+	const onChange = ({ target: { value } }) => {
+		setViewMode(value)
+	}
+	return (
+		<>
+			<Radio.Group
+				defaultValue='card'
+				optionType='button'
+				buttonStyle='solid'
+				onChange={onChange}
+			>
+				<Radio value='card'>
+					<HiViewGrid />
+				</Radio>
+				<Radio value='list'>
+					<HiViewList />
+				</Radio>
+			</Radio.Group>
+		</>
+	)
 }
 
 export default RadioSample
