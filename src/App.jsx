@@ -1,7 +1,9 @@
-import AntdPopconfirm01 from './components/feedback/popconfirm/AntdPopconfirm01'
+// import './index.css' // TailwindCss
+
+import AntdTree01 from './components/data-display/tree/AntdTree01'
 
 function App() {
-	return <AntdPopconfirm01 />
+	return <AntdTree01 />
 }
 
 export default App

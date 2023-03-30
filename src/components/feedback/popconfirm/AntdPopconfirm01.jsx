@@ -18,6 +18,7 @@ const AntdPopconfirm01 = () => {
 			cancelText='No'
 			onConfirm={onConfirm}
 			onCancel={onCancel}
+			className='myClass'
 		>
 			<Button icon={<DeleteOutlined />}></Button>
 			{/* <a href='#'>Delete</a> */}
